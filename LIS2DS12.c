@@ -39,7 +39,7 @@ void LIS2_odr_lp_1(){
 	    * 10 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0x8);
+	   LIS2_ctrl1_change_odr(0x8);
 
 }
 
@@ -50,7 +50,7 @@ void LIS2_odr_lp_13(){
 	    * 10 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0x9);
+	   LIS2_ctrl1_change_odr(0x9);
 
 }
 
@@ -61,7 +61,7 @@ void LIS2_odr_lp_25(){
 	    * 10 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0xA);
+	   LIS2_ctrl1_change_odr(0xA);
 
 }
 
@@ -72,7 +72,7 @@ void LIS2_odr_lp_50(){
 	    * 10 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0xB);
+	   LIS2_ctrl1_change_odr(0xB);
 
 }
 
@@ -83,7 +83,7 @@ void LIS2_odr_lp_100(){
 	    * 10 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0xC);
+	   LIS2_ctrl1_change_odr(0xC);
 
 }
 
@@ -94,7 +94,7 @@ void LIS2_odr_lp_200(){
 	    * 10 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0xD);
+	   LIS2_ctrl1_change_odr(0xD);
 
 }
 
@@ -105,7 +105,7 @@ void LIS2_odr_lp_400(){
 	    * 10 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0xE);
+	   LIS2_ctrl1_change_odr(0xE);
 
 }
 
@@ -116,7 +116,7 @@ void LIS2_odr_lp_800(){
 	    * 10 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0xF);
+	   LIS2_ctrl1_change_odr(0xF);
 
 }
 
@@ -127,7 +127,7 @@ void LIS2_odr_hr_13(){
 	    * 14 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0x1);
+	   LIS2_ctrl1_change_odr(0x1);
 
 }
 
@@ -138,7 +138,7 @@ void LIS2_odr_hr_25(){
 	    * 14 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0x2);
+	   LIS2_ctrl1_change_odr(0x2);
 
 }
 
@@ -149,7 +149,7 @@ void LIS2_odr_hr_50(){
 	    * 14 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0x3);
+	   LIS2_ctrl1_change_odr(0x3);
 
 }
 
@@ -160,7 +160,7 @@ void LIS2_odr_hr_100(){
 	    * 14 bit resolution
 	    */
 
-	   LIS_ctrl1_change_odr(0x4);
+	   LIS2_ctrl1_change_odr(0x4);
 
 }
 
@@ -171,8 +171,8 @@ void LIS2_odr_hr_200(){
 	    * 14 bit resolution
 	    */
 
-	   LIS_ctrl1_change_hf_odr(0x0);
-	   LIS_ctrl1_change_odr(0x5);
+	   LIS2_ctrl1_change_hf_odr(0x0);
+	   LIS2_ctrl1_change_odr(0x5);
 
 }
 
@@ -183,8 +183,8 @@ void LIS2_odr_hr_400(){
 	    * 14 bit resolution
 	    */
 
-	   LIS_ctrl1_change_hf_odr(0x0);
-	   LIS_ctrl1_change_odr(0x6);
+	   LIS2_ctrl1_change_hf_odr(0x0);
+	   LIS2_ctrl1_change_odr(0x6);
 
 }
 
@@ -195,8 +195,8 @@ void LIS2_odr_hr_800(){
 	    * 14 bit resolution
 	    */
 
-	   LIS_ctrl1_change_hf_odr(0x0);
-	   LIS_ctrl1_change_odr(0x7);
+	   LIS2_ctrl1_change_hf_odr(0x0);
+	   LIS2_ctrl1_change_odr(0x7);
 
 }
 
@@ -207,8 +207,8 @@ void LIS2_odr_hf_1600(){
 	    * 12 bit resolution
 	    */
 
-	   LIS_ctrl1_change_hf_odr(0x1);
-	   LIS_ctrl1_change_odr(0x5);
+	   LIS2_ctrl1_change_hf_odr(0x1);
+	   LIS2_ctrl1_change_odr(0x5);
 
 }
 
@@ -219,8 +219,8 @@ void LIS2_odr_hf_3200(){
 	    * 12 bit resolution
 	    */
 
-	   LIS_ctrl1_change_hf_odr(0x1);
-	   LIS_ctrl1_change_odr(0x6);
+	   LIS2_ctrl1_change_hf_odr(0x1);
+	   LIS2_ctrl1_change_odr(0x6);
 
 }
 
@@ -231,8 +231,8 @@ void LIS2_odr_hf_6400(){
 	    * 12 bit resolution
 	    */
 
-	   LIS_ctrl1_change_hf_odr(0x1);
-	   LIS_ctrl1_change_odr(0x7);
+	   LIS2_ctrl1_change_hf_odr(0x1);
+	   LIS2_ctrl1_change_odr(0x7);
 
 }
 
@@ -241,7 +241,7 @@ void LIS2_fs_2g(){
 	    * Change sensitivity to 2g's
 	    */
 
-	   LIS_ctrl1_change_fs(0x0);
+	   LIS2_ctrl1_change_fs(0x0);
 }
 
 void LIS2_fs_16g(){
@@ -249,7 +249,7 @@ void LIS2_fs_16g(){
 	    * Change sensitivity to 16g's
 	    */
 
-	   LIS_ctrl1_change_fs(0x1);
+	   LIS2_ctrl1_change_fs(0x1);
 }
 
 void LIS2_fs_4g(){
@@ -257,7 +257,7 @@ void LIS2_fs_4g(){
 	    * Change sensitivity to 4g's
 	    */
 
-	   LIS_ctrl1_change_fs(0x2);
+	   LIS2_ctrl1_change_fs(0x2);
 }
 
 void LIS2_fs_8g(){
@@ -265,7 +265,7 @@ void LIS2_fs_8g(){
 	    * Change sensitivity to 8g's
 	    */
 
-	   LIS_ctrl1_change_fs(0x3);
+	   LIS2_ctrl1_change_fs(0x3);
 }
 
 void LIS2_ctrl1_change_odr(uint8_t state){
@@ -374,42 +374,42 @@ uint8_t LIS2_ctrl1_state(){
 	   return I2C_ReadReg((uint8_t) 0x20);
 }
 
-uint8_t LIS_ctrl2_state(){
+uint8_t LIS2_ctrl2_state(){
 	   /*
 	    * Read and return the current state of the CTRL2 Registry
 	    */
 	   return I2C_ReadReg((uint8_t) 0x21);
 }
 
-uint8_t LIS_ctrl3_state(){
+uint8_t LIS2_ctrl3_state(){
 	   /*
 	    * Read and return the current state of the CTRL3 Registry
 	    */
 	   return I2C_ReadReg((uint8_t) 0x22);
 }
 
-uint8_t LIS_ctrl4_state(){
+uint8_t LIS2_ctrl4_state(){
 	   /*
 	    * Read and return the current state of the CTRL4 Registry
 	    */
 	   return I2C_ReadReg((uint8_t) 0x23);
 }
 
-uint8_t LIS_ctrl5_state(){
+uint8_t LIS2_ctrl5_state(){
 	   /*
 	    * Read and return the current state of the CTRL5 Registry
 	    */
 	   return I2C_ReadReg((uint8_t) 0x24);
 }
 
-uint8_t LIS_fifo_ctrl_state(){
+uint8_t LIS2_fifo_ctrl_state(){
 	   /*
 	    * Read and return the current state of the FIFO_CTRL Registry
 	    */
 	   return I2C_ReadReg((uint8_t) 0x25);
 }
 
-uint8_t LIS_status_state(){
+uint8_t LIS2_status_state(){
 	   /*
 	    * Read and return the current state of the STATUS Registry
 	    */

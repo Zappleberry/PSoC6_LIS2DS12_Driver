@@ -65,12 +65,12 @@ void LIS2_ctrl4_int1_s_tap(uint8_t state);
  * --------------------------------- */
 
 uint8_t LIS2_ctrl1_state();
-uint8_t LIS_ctrl2_state();
-uint8_t LIS_ctrl3_state();
-uint8_t LIS_ctrl4_state();
-uint8_t LIS_ctrl5_state();
-uint8_t LIS_fifo_ctrl_state();
-uint8_t LIS_status_state();
+uint8_t LIS2_ctrl2_state();
+uint8_t LIS2_ctrl3_state();
+uint8_t LIS2_ctrl4_state();
+uint8_t LIS2_ctrl5_state();
+uint8_t LIS2_fifo_ctrl_state();
+uint8_t LIS2_status_state();
 
 /* -------------------------------- *
  * -------------------------------- *
