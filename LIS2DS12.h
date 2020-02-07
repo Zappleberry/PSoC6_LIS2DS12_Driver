@@ -1,4 +1,4 @@
-#ifndef
+#ifndef LIS2DS12_h
 #define LIS2DS12_h
 
 #include "project.h"

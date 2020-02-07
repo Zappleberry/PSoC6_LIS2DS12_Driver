@@ -1,4 +1,5 @@
 #include "LIS2DS12.h"
+#include "project.h"
 
 /* -------------------------- *
  * -------------------------- *
@@ -342,7 +343,7 @@ void LIS2_ctrl4_int1_master_drdy(uint8_t state){
 	   uint8_t ctrl4_state = LIS2_ctrl4_state();
 	   uint8_t write_val = bitwise_substr_ed(ctrl4_state, state, 7, 7);
 
-	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val)
+	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
 }
 
 void LIS2_ctrl4_int1_s_tap(uint8_t state){
@@ -357,7 +358,7 @@ void LIS2_ctrl4_int1_s_tap(uint8_t state){
 	   uint8_t ctrl4_state = LIS2_ctrl4_state();
 	   uint8_t write_val = bitwise_substr_ed(ctrl4_state, state, 6, 6);
 
-	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val)
+	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
 }
 
 /* --------------------------------- *
@@ -457,7 +458,7 @@ float get_accel(uint8_t reg_h, uint8_t reg_l){
 
 	   uint8_t high_byte, low_byte;
 	   int prescale;
-	   uint8_t ctrl1_stat;
+	   uint8_t ctrl1_state;
 	   uint8_t fs;
 	   float scaling_f;
 
@@ -477,7 +478,7 @@ float get_accel(uint8_t reg_h, uint8_t reg_l){
 
 float get_scaling_factor(uint8_t fs){
 
-	   scale_f_2g = 0x4000;
+	   uint16_t scale_f_2g = 0x4000;
 
 	   switch(fs){
 			 case 0:
@@ -494,7 +495,7 @@ float get_scaling_factor(uint8_t fs){
 				    break;
 			 default:
 				    return (float) scale_f_2g; /* default config */
-				    return 
+				    break;
 	   }
 
 }
