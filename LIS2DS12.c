@@ -423,7 +423,7 @@ uint8_t LIS2_status_state(){
  * -------------------------------- *
  * -------------------------------- */
 
-float get_x_accel(){
+float LIS2_get_x_accel(){
 	   /* 
 	    * Used to grab the current accelerometer information for
 	    * x axis
@@ -432,7 +432,7 @@ float get_x_accel(){
 	   return get_accel(0x29, 0x28);
 }
 
-float get_y_accel(){
+float LIS2_get_y_accel(){
 	   /* 
 	    * Used to grab the current accelerometer information for
 	    * y axis
@@ -441,7 +441,7 @@ float get_y_accel(){
 	   return get_accel(0x2B, 0x2A);
 }
 
-float get_z_accel(){
+float LIS2_get_z_accel(){
 	   /* 
 	    * Used to grab the current accelerometer information for
 	    * z axis
@@ -468,6 +468,10 @@ float get_accel(uint8_t reg_h, uint8_t reg_l){
 
 	   /* Use current full-scale selection to determine the scaling factor */
 	   scaling_f = get_scaling_factor(fs);
+
+	   /* Get accelerations of registers */
+	   high_byte = I2C_ReadReg(reg_h);
+	   low_byte = I2C_ReadReg(reg_l);
 
 	   /* calculate prescaled integer by concatenating the high byte and low byte and
 	    * undoing two's complimenting of the 2 byte number */

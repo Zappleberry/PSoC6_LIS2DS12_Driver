@@ -78,9 +78,9 @@ uint8_t LIS2_status_state();
  * -------------------------------- *
  * -------------------------------- */
 
-float get_x_accel();
-float get_y_accel();
-float get_z_accel();
+float LIS2_get_x_accel();
+float LIS2_get_y_accel();
+float LIS2_get_z_accel();
 float get_accel(uint8_t reg_h, uint8_t reg_l);
 float get_scaling_factor(uint8_t fs);
 
