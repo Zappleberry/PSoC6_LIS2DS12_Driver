@@ -506,6 +506,12 @@ float get_scaling_factor(uint8_t fs){
  * ---------------------- *
  * ---------------------- */
 
+/* --------------------------------------------------- *
+ * To repurpose this sensor for other microcontrollers *
+ * this should be the only code that needs changing    *
+ * --------------------------------------------------- *
+ */
+
 uint8_t I2C_ReadReg(uint8_t reg){
 	   /*
 	    * Performs a Master->Slave read of registry of interest
@@ -527,7 +533,7 @@ uint8_t I2C_ReadReg(uint8_t reg){
 	   CyDelay(1);
 
 	   // Change to Read mode
-	   I2C_MasterSendRestart(AGENT_ADDRESS, CY_SCB_I2C_READ_XFER, 100);
+	   I2C_MasterSendReStart(AGENT_ADDRESS, CY_SCB_I2C_READ_XFER, 100);
 	   CyDelay(1);
 
 	   // Read from Register specified
