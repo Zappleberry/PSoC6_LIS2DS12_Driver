@@ -477,25 +477,25 @@ float get_accel(uint8_t reg_h, uint8_t reg_l){
 	    * undoing two's complimenting of the 2 byte number */
 	   prescale = twos_compliment(num_cat(high_byte, low_byte));
 
-	   return ((float) prescale / scaling_f)*9.8;
+	   return ((float) prescale / (float) scaling_f)*9.8;
 }
 
 float get_scaling_factor(uint8_t fs){
 
-	   uint16_t scale_f_2g = 0x4000;
+	   uint16_t scale_f_2g = 0x8000; /* Maximum prescale value in one direction */
 
 	   switch(fs){
 			 case 0:
-				    return (float) scale_f_2g; /* Case for +/- 2g config */
+				    return (float) scale_f_2g/2; /* Case for +/- 2g config */
 				    break;
 			 case 1:
-				    return (float) scale_f_2g/8; /* Case for +/- 16g config */
+				    return (float) scale_f_2g/16; /* Case for +/- 16g config */
 				    break;
 			 case 2:
-				    return (float) scale_f_2g/2; /* Case for +/- 4g config */
+				    return (float) scale_f_2g/4; /* Case for +/- 4g config */
 				    break;
 			 case 3:
-				    return (float) scale_f_2g/4; /* Case for +/- 8g config */
+				    return (float) scale_f_2g/8; /* Case for +/- 8g config */
 				    break;
 			 default:
 				    return (float) scale_f_2g; /* default config */
