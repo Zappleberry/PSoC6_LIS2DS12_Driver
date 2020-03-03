@@ -56,6 +56,27 @@ void LIS2_ctrl1_change_bdu(uint8_t state);
 
 void LIS2_ctrl4_int1_master_drdy(uint8_t state);
 void LIS2_ctrl4_int1_s_tap(uint8_t state);
+void LIS2_ctrl4_int1_wu(uint8_t state);
+void LIS2_ctrl4_int1_ff(uint8_t state);
+void LIS2_ctrl4_int1_dtap(uint8_t state);
+void LIS2_ctrl4_int1_6D(uint8_t state);
+void LIS2_ctrl4_int1_fth(uint8_t state);
+void LIS2_ctrl4_int1_drdy(uint8_t state);
+
+/* ----------------------------- *
+ * ----------------------------- *
+ * LIS2DS12 CTRL5 INT2 Functions *
+ * ----------------------------- *
+ * ------------------------------*/
+
+void LIS2_ctrl5_int2_master_drdy(uint8_t state);
+void LIS2_ctrl5_int2_s_tap(uint8_t state);
+void LIS2_ctrl5_int2_wu(uint8_t state);
+void LIS2_ctrl5_int2_ff(uint8_t state);
+void LIS2_ctrl5_int2_dtap(uint8_t state);
+void LIS2_ctrl5_int2_6D(uint8_t state);
+void LIS2_ctrl5_int2_fth(uint8_t state);
+void LIS2_ctrl5_int2_drdy(uint8_t state);
 
 /* --------------------------------- *
  * --------------------------------- *
