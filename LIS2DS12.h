@@ -2,8 +2,7 @@
 #define LIS2DS12_h
 
 #include "I2C_RW.h"
-
-#define AGENT_ADDRESS 0x1E
+#include "arithmetic.h"
 
 /* -------------------------- *
  * -------------------------- *
@@ -83,17 +82,6 @@ float LIS2_get_y_accel();
 float LIS2_get_z_accel();
 float get_accel(uint8_t reg_h, uint8_t reg_l);
 float get_scaling_factor(uint8_t fs);
-
-/* ------------------------------- *
- * ------------------------------- *
- * Functions for Arithmetic Needed *
- * ------------------------------- *
- * ------------------------------- */
-
-uint16_t num_cat(uint8_t nh, uint8_t nl);
-int twos_compliment(uint16_t num);
-uint8_t bitwise_substr_ed(uint8_t word, uint8_t replace, uint8_t index_l, uint8_t index_h);
-uint8_t bitwise_substr_p(uint8_t word, uint8_t index_l, uint8_t index_h);
 
 #endif
 
