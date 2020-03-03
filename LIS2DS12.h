@@ -1,7 +1,7 @@
 #ifndef LIS2DS12_h
 #define LIS2DS12_h
 
-#include "project.h"
+#include "I2C_RW.h"
 
 #define AGENT_ADDRESS 0x1E
 
@@ -83,15 +83,6 @@ float LIS2_get_y_accel();
 float LIS2_get_z_accel();
 float get_accel(uint8_t reg_h, uint8_t reg_l);
 float get_scaling_factor(uint8_t fs);
-
-/* ---------------------- *
- * ---------------------- *
- * PSoC I2C R/W Functions *
- * ---------------------- *
- * ---------------------- */
-
-uint8_t I2C_ReadReg(uint8_t reg);
-void I2C_WriteReg(uint8_t reg, uint8_t val);
 
 /* ------------------------------- *
  * ------------------------------- *
