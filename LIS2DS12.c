@@ -361,6 +361,222 @@ void LIS2_ctrl4_int1_s_tap(uint8_t state){
 	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
 }
 
+void LIS2_ctrl4_int1_wu(uint8_t state){
+	   /*
+	    * Used internally to change the wake recognition recognition
+	    * on INT1 pad
+	    * in registry CTRL4
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl4_state = LIS2_ctrl4_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl4_state, state, 5, 5);
+
+	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
+}
+
+void LIS2_ctrl4_int1_ff(uint8_t state){
+	   /*
+	    * Used internally to change the free-fall recognition
+	    * on INT1 pad
+	    * in registry CTRL4
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl4_state = LIS2_ctrl4_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl4_state, state, 4, 4);
+
+	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
+}
+
+void LIS2_ctrl4_int1_dtap(uint8_t state){
+	   /*
+	    * Used internally to change the double tap recognition
+	    * on INT1 pad
+	    * in registry CTRL4
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl4_state = LIS2_ctrl4_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl4_state, state, 3, 3);
+
+	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
+}
+
+void LIS2_ctrl4_int1_6D(uint8_t state){
+	   /*
+	    * Used internally to change the 6D recognition
+	    * on INT1 pad
+	    * in registry CTRL4
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl4_state = LIS2_ctrl4_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl4_state, state, 2, 2);
+
+	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
+}
+
+void LIS2_ctrl4_int1_fth(uint8_t state){
+	   /*
+	    * Used internally to change the FIFO threshold recognition
+	    * on INT1 pad
+	    * in registry CTRL4
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl4_state = LIS2_ctrl4_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl4_state, state, 1, 1);
+
+	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
+}
+
+void LIS2_ctrl4_int1_drdy(uint8_t state){
+	   /*
+	    * Used internally to change the data ready recognition
+	    * on INT1 pad
+	    * in registry CTRL4
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl4_state = LIS2_ctrl4_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl4_state, state, 0, 0);
+
+	   I2C_WriteReg((uint8_t) 0x23, (uint8_t) write_val);
+}
+
+/* ----------------------------- *
+ * ----------------------------- *
+ * LIS2DS12 CTRL5 INT2 Functions *
+ * ----------------------------- *
+ * ------------------------------*/
+
+void LIS2_ctrl5_int2_master_drdy(uint8_t state){
+	   /*
+	    * Used internally to change the Master DRDY Signal
+	    * on INT2 pad
+	    * in registry CTRL5
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl5_state = LIS2_ctrl5_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl5_state, state, 7, 7);
+
+	   I2C_WriteReg((uint8_t) 0x24, (uint8_t) write_val);
+}
+
+void LIS2_ctrl5_int2_s_tap(uint8_t state){
+	   /*
+	    * Used internally to change the single tap recognition
+	    * on INT2 pad
+	    * in registry CTRL5
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl5_state = LIS2_ctrl5_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl5_state, state, 6, 6);
+
+	   I2C_WriteReg((uint8_t) 0x24, (uint8_t) write_val);
+}
+
+void LIS2_ctrl5_int2_wu(uint8_t state){
+	   /*
+	    * Used internally to change the wake recognition recognition
+	    * on INT2 pad
+	    * in registry CTRL5
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl5_state = LIS2_ctrl5_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl5_state, state, 5, 5);
+
+	   I2C_WriteReg((uint8_t) 0x24, (uint8_t) write_val);
+}
+
+void LIS2_ctrl5_int2_ff(uint8_t state){
+	   /*
+	    * Used internally to change the free-fall recognition
+	    * on INT2 pad
+	    * in registry CTRL5
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl5_state = LIS2_ctrl5_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl5_state, state, 4, 4);
+
+	   I2C_WriteReg((uint8_t) 0x24, (uint8_t) write_val);
+}
+
+void LIS2_ctrl5_int2_dtap(uint8_t state){
+	   /*
+	    * Used internally to change the double tap recognition
+	    * on INT2 pad
+	    * in registry CTRL5
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl5_state = LIS2_ctrl5_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl5_state, state, 3, 3);
+
+	   I2C_WriteReg((uint8_t) 0x24, (uint8_t) write_val);
+}
+
+void LIS2_ctrl5_int2_6D(uint8_t state){
+	   /*
+	    * Used internally to change the 6D recognition
+	    * on INT2 pad
+	    * in registry CTRL5
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl5_state = LIS2_ctrl5_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl5_state, state, 2, 2);
+
+	   I2C_WriteReg((uint8_t) 0x24, (uint8_t) write_val);
+}
+
+void LIS2_ctrl5_int2_fth(uint8_t state){
+	   /*
+	    * Used internally to change the FIFO threshold recognition
+	    * on INT2 pad
+	    * in registry CTRL5
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl5_state = LIS2_ctrl5_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl5_state, state, 1, 1);
+
+	   I2C_WriteReg((uint8_t) 0x24, (uint8_t) write_val);
+}
+
+void LIS2_ctrl5_int2_drdy(uint8_t state){
+	   /*
+	    * Used internally to change the data ready recognition
+	    * on INT2 pad
+	    * in registry CTRL5
+	    *
+	    * state must be 1 bit
+	    */
+
+	   uint8_t ctrl5_state = LIS2_ctrl5_state();
+	   uint8_t write_val = bitwise_substr_ed(ctrl5_state, state, 0, 0);
+
+	   I2C_WriteReg((uint8_t) 0x24, (uint8_t) write_val);
+}
+
 /* --------------------------------- *
  * --------------------------------- *
  * LIS2DS12 Registry State Functions *
