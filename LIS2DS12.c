@@ -18,11 +18,11 @@ uint8_t LIS2_who_am_i(){
 
 }
 
-/* ------------------------ *
- * ------------------------ *
- * LIS2DS12 CTRL1 Functions *
- * ------------------------ *
- * ------------------------ */
+/* ----------------------------- *
+ * ----------------------------- *
+ * LIS2DS12 Power Mode Functions *
+ * ----------------------------- *
+ * ----------------------------- */
 
 void LIS2_odr_powerdown(){
 	   /* 
@@ -269,6 +269,28 @@ void LIS2_fs_8g(){
 	   LIS2_ctrl1_change_fs(0x3);
 }
 
+void LIS2_bdu_enable(){
+	   /*
+	    * Enable BDU
+	    */
+
+	   LIS2_ctrl1_change_bdu(1);
+}
+
+void LIS2_bdu_disable(){
+	   /*
+	    * Disable BDU
+	    */
+
+	   LIS2_ctrl1_change_bdu(0);
+}
+
+/* ---------------------------------- *
+ * ---------------------------------- *
+ * LIS2DS12 CTRL1 Low Level Functions *
+ * ---------------------------------- *
+ * ---------------------------------- */
+
 void LIS2_ctrl1_change_odr(uint8_t state){
 	   /*
 	    * Used internally to change the power state
@@ -323,6 +345,162 @@ void LIS2_ctrl1_change_bdu(uint8_t state){
 	   //uint8_t write_val = (~(0x01) & ctrl1_state) | (state & 0x01);
 	   uint8_t write_val = bitwise_substr_ed(ctrl1_state, state, 0, 0);
 	   I2C_WriteReg((uint8_t) 0x20, (uint8_t) write_val);
+
+}
+
+/* ---------------------------- *
+ * ---------------------------- *
+ * LIS2DS12 Interrupt Functions *
+ * ---------------------------- *
+ * ---------------------------- */
+
+void LIS2_Interrupt_Enable(uint8_t interrupt, uint8_t interrupt_type){
+	   /*
+	    * Enables interrupt_type on interrupt interrupt
+	    *
+	    * interrupt is which interrupt to use
+	    * (1 or 2)
+	    * interrupt_type is what type of interrupt to use
+	    * (i.e. single tap, double tap, etc.)
+	    */
+
+	   switch(interrupt){
+			 case 1: 
+				    switch(interrupt_type){
+						  case MASTER_DRDY:
+								LIS2_ctrl4_int1_master_drdy(1);
+								break;
+						  case SINGLE_TAP:
+								LIS2_ctrl4_int1_s_tap(1);
+								break;
+						  case WAKEUP:
+								LIS2_ctrl4_int1_wu(1);
+								break;
+						  case FREEFALL:
+								LIS2_ctrl4_int1_ff(1);
+								break;
+						  case DOUBLE_TAP:
+								LIS2_ctrl4_int1_dtap(1);
+								break;
+						  case SIX_D:
+								LIS2_ctrl4_int1_6D(1);
+								break;
+						  case FIFO_THRES:
+								LIS2_ctrl4_int1_fth(1);
+								break;
+						  case DRDY:
+								LIS2_ctrl4_int1_drdy(1);
+								break;
+						  default: break;
+				    }
+				    break;
+			 case 2:
+
+				    switch(interrupt_type){
+						  case MASTER_DRDY:
+								LIS2_ctrl5_int2_master_drdy(1);
+								break;
+						  case SINGLE_TAP:
+								LIS2_ctrl5_int2_s_tap(1);
+								break;
+						  case WAKEUP:
+								LIS2_ctrl5_int2_wu(1);
+								break;
+						  case FREEFALL:
+								LIS2_ctrl5_int2_ff(1);
+								break;
+						  case DOUBLE_TAP:
+								LIS2_ctrl5_int2_dtap(1);
+								break;
+						  case SIX_D:
+								LIS2_ctrl5_int2_6D(1);
+								break;
+						  case FIFO_THRES:
+								LIS2_ctrl5_int2_fth(1);
+								break;
+						  case DRDY:
+								LIS2_ctrl5_int2_drdy(1);
+								break;
+						  default: break;
+				    }
+				    break;
+			 default: break;
+	   }
+
+}
+
+void LIS2_Interrupt_Disable(uint8_t interrupt, uint8_t interrupt_type){
+	   /*
+	    * Disables interrupt_type on interrupt interrupt
+	    *
+	    * interrupt is which interrupt to use
+	    * (1 or 2)
+	    * interrupt_type is what type of interrupt to use
+	    * (i.e. single tap, double tap, etc.)
+	    */
+
+	   switch(interrupt){
+			 case 1: 
+				    switch(interrupt_type){
+						  case MASTER_DRDY:
+								LIS2_ctrl4_int1_master_drdy(0);
+								break;
+						  case SINGLE_TAP:
+								LIS2_ctrl4_int1_s_tap(0);
+								break;
+						  case WAKEUP:
+								LIS2_ctrl4_int1_wu(0);
+								break;
+						  case FREEFALL:
+								LIS2_ctrl4_int1_ff(0);
+								break;
+						  case DOUBLE_TAP:
+								LIS2_ctrl4_int1_dtap(0);
+								break;
+						  case SIX_D:
+								LIS2_ctrl4_int1_6D(0);
+								break;
+						  case FIFO_THRES:
+								LIS2_ctrl4_int1_fth(0);
+								break;
+						  case DRDY:
+								LIS2_ctrl4_int1_drdy(0);
+								break;
+						  default: break;
+				    }
+				    break;
+			 case 2:
+
+				    switch(interrupt_type){
+						  case MASTER_DRDY:
+								LIS2_ctrl5_int2_master_drdy(0);
+								break;
+						  case SINGLE_TAP:
+								LIS2_ctrl5_int2_s_tap(0);
+								break;
+						  case WAKEUP:
+								LIS2_ctrl5_int2_wu(0);
+								break;
+						  case FREEFALL:
+								LIS2_ctrl5_int2_ff(0);
+								break;
+						  case DOUBLE_TAP:
+								LIS2_ctrl5_int2_dtap(0);
+								break;
+						  case SIX_D:
+								LIS2_ctrl5_int2_6D(0);
+								break;
+						  case FIFO_THRES:
+								LIS2_ctrl5_int2_fth(0);
+								break;
+						  case DRDY:
+								LIS2_ctrl5_int2_drdy(0);
+								break;
+						  default: break;
+				    }
+				    break;
+			 default: break;
+	   }
 
 }
 
@@ -720,3 +898,4 @@ float get_scaling_factor(uint8_t fs){
 	   }
 
 }
+

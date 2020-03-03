@@ -4,6 +4,15 @@
 #include "I2C_RW.h"
 #include "arithmetic.h"
 
+#define MASTER_DRDY 7
+#define SINGLE_TAP 6
+#define WAKEUP 5
+#define FREEFALL 4
+#define DOUBLE_TAP 3
+#define SIX_D 2
+#define FIFO_THRES 1
+#define DRDY 0
+
 /* -------------------------- *
  * -------------------------- *
  * LIS2DS12 WHO_AM_I Function *
@@ -13,11 +22,11 @@
 uint8_t LIS2_who_am_i();
 
 
-/* ------------------------ *
- * ------------------------ *
- * LIS2DS12 CTRL1 Functions *
- * ------------------------ *
- * ------------------------ */
+/* ----------------------------- *
+ * ----------------------------- *
+ * LIS2DS12 Power Mode Functions *
+ * ----------------------------- *
+ * ----------------------------- */
 
 void LIS2_odr_powerdown();
 
@@ -43,10 +52,28 @@ void LIS2_fs_2g();
 void LIS2_fs_16g();
 void LIS2_fs_4g();
 void LIS2_fs_8g();
+void LIS2_bdu_enable();
+void LIS2_bdu_disable();
+
+/* ---------------------------------- *
+ * ---------------------------------- *
+ * LIS2DS12 CTRL1 Low Level Functions *
+ * ---------------------------------- *
+ * ---------------------------------- */
+
 void LIS2_ctrl1_change_odr(uint8_t state);
 void LIS2_ctrl1_change_fs(uint8_t state);
 void LIS2_ctrl1_change_hf_odr(uint8_t state);
 void LIS2_ctrl1_change_bdu(uint8_t state);
+
+/* ---------------------------- *
+ * ---------------------------- *
+ * LIS2DS12 Interrupt Functions *
+ * ---------------------------- *
+ * ---------------------------- */
+
+void LIS2_Interrupt_Enable(uint8_t interrupt, uint8_t interrupt_type);
+void LIS2_Interrupt_Disable(uint8_t interrupt, uint8_t interrupt_type);
 
 /* ----------------------------- *
  * ----------------------------- *
@@ -103,6 +130,36 @@ float LIS2_get_y_accel();
 float LIS2_get_z_accel();
 float get_accel(uint8_t reg_h, uint8_t reg_l);
 float get_scaling_factor(uint8_t fs);
+
+/* ------------------------------------- *
+ * ------------------------------------- *
+ * LIS2DS12 Low Level Interrupt Settings *
+ * ------------------------------------- *
+ * ------------------------------------- */
+
+/* Reg 2E */
+void LIS2_set_FIFO_THS(uint8_t FTH);
+uint8_t LIS2_get_FIFO_THS();
+
+/* Reg 2F */
+uint8_t LIS2_get_FIFO_SRC_FTH();
+uint8_t LIS2_get_FIFO_SRC_OVR();
+uint8_t LIS2_get_FIFO_SRC_DIFF();
+
+/* Reg 30 */
+uint8_t LIS2_get_FIFO_SAMPLES();
+
+/* Reg 31 */
+uint8_t LIS2_get_TAP_6D_THS();
+void LIS2_set_TAP_6D_THS_4D_EN(uint8_t en);
+void LIS2_set_TAP_6D_THS_6D_THS(uint8_t thres);
+void LIS2_set_TAP_6D_THS_TAP_THS(uint8_t thres);
+
+/* Reg 32 */
+uint8_t LIS2_get_INT_DUR();
+void LIS2_set_INT_DUR_LAT(uint8_t lat);
+void LIS2_set_INT_DUR_QUIET(uint8_t quiet);
+void LIS2_set_INT_DUR_SHOCK(uint8_t shock);
 
 #endif
 
