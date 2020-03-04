@@ -158,8 +158,23 @@ void LIS2_set_TAP_6D_THS_TAP_THS(uint8_t thres);
 /* Reg 32 */
 uint8_t LIS2_get_INT_DUR();
 void LIS2_set_INT_DUR_LAT(uint8_t lat);
+uint8_t LIS2_get_INT_DUR_LAT();
 void LIS2_set_INT_DUR_QUIET(uint8_t quiet);
+uint8_t LIS2_get_INT_DUR_QUIET();
 void LIS2_set_INT_DUR_SHOCK(uint8_t shock);
+uint8_t LIS2_get_INT_DUR_SHOCK();
+
+/* Reg 33 */
+
+/* Reg 34 */
+
+/* Reg 35 */
+
+/* Reg 37 */
+
+/* Reg 38 */
+
+/* Reg 39 */
 
 #endif
 
