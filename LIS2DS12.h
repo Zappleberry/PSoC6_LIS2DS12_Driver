@@ -165,16 +165,58 @@ void LIS2_set_INT_DUR_SHOCK(uint8_t shock);
 uint8_t LIS2_get_INT_DUR_SHOCK();
 
 /* Reg 33 */
+uint8_t LIS2_get_WAKE_UP_THS();
+void LIS2_set_WAKE_UP_THS_S_D_TAP(uint8_t en);
+uint8_t LIS2_get_WAKE_UP_THS_S_D_TAP();
+void LIS2_set_WAKE_UP_THS_SLEEP_ON(uint8_t en);
+uint8_t LIS2_get_WAKE_UP_THS_SLEEP_ON();
+void LIS2_set_WAKE_UP_THS_WU_THS(uint8_t wu_ths);
+uint8_t LIS2_get_WAKE_UP_THS_WU_THS();
 
 /* Reg 34 */
+uint8_t LIS2_get_WAKE_UP_DUR();
+void LIS2_set_WAKE_UP_DUR_WU_DUR(uint8_t dur);
+uint8_t LIS2_get_WAKE_UP_DUR_WU_DUR();
+void LIS2_set_WAKE_UP_DUR_INT1_FSS7(uint8_t en);
+uint8_t LIS2_get_WAKE_UP_DUR_INT1_FSS7();
+void LIS2_set_WAKE_UP_DUR_SLEEP_DUR(uint8_t dur);
+uint8_t LIS2_get_WAKE_UP_DUR_SLEEP_DUR();
 
 /* Reg 35 */
+uint8_t LIS2_get_FREE_FALL();
+void LIS2_set_FREE_FALL_FF_DUR(uint8_t dur);
+uint8_t LIS2_get_FREE_FALL_FF_DUR();
+void LIS2_set_FREE_FALL_FF_THS(uint8_t thres);
+uint8_t LIS2_get_FREE_FALL_FF_THS();
 
 /* Reg 37 */
+uint8_t LIS2_get_WAKE_UP_SRC();
+uint8_t LIS2_get_WAKE_UP_SRC_FF_IA();
+uint8_t LIS2_get_WAKE_UP_SRC_SLEEP_STATE_IA();
+uint8_t LIS2_get_WAKE_UP_SRC_WU_IA();
+uint8_t LIS2_get_WAKE_UP_SRC_X_WU();
+uint8_t LIS2_get_WAKE_UP_SRC_Y_WU();
+uint8_t LIS2_get_WAKE_UP_SRC_Z_WU();
 
 /* Reg 38 */
+uint8_t LIS2_get_TAP_SRC();
+uint8_t LIS2_get_TAP_SRC_TAP_IA();
+uint8_t LIS2_get_TAP_SRC_S_TAP();
+uint8_t LIS2_get_TAP_SRC_D_TAP();
+uint8_t LIS2_get_TAP_SRC_TAP_SIGN();
+uint8_t LIS2_get_TAP_SRC_X_TAP();
+uint8_t LIS2_get_TAP_SRC_Y_TAP();
+uint8_t LIS2_get_TAP_SRC_Z_TAP();
 
 /* Reg 39 */
+uint8_t LIS2_get_6D_SRC();
+uint8_t LIS2_get_6D_SRC_6D_IA();
+uint8_t LIS2_get_6D_SRC_ZH();
+uint8_t LIS2_get_6D_SRC_ZL();
+uint8_t LIS2_get_6D_SRC_YH();
+uint8_t LIS2_get_6D_SRC_YL();
+uint8_t LIS2_get_6D_SRC_XH();
+uint8_t LIS2_get_6D_SRC_XL();
 
 #endif
 

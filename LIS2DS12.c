@@ -1090,3 +1090,419 @@ uint8_t LIS2_get_INT_DUR_SHOCK(){
 
 	   return bitwise_substr_p(LIS2_get_INT_DUR, 0, 1);
 }
+
+/* Reg 33 */
+uint8_t LIS2_get_WAKE_UP_THS(){
+	   /*
+	    * This reads the content of the
+	    * WAKE_UP_THS register
+	    */
+
+	   return I2C_ReadReg((uint8_t) 0x33);
+}
+void LIS2_set_WAKE_UP_THS_S_D_TAP(uint8_t en){
+	   /*
+	    * This registry will switch between
+	    * single and double tap being used for
+	    * wake up
+	    */
+
+	   uint8_t wake_up_ths_state = LIS2_get_WAKE_UP_THS();
+	   uint8_t write_val = bitwise_substr_ed(wake_up_ths_state, en, 7, 7);
+
+	   I2C_WriteReg((uint8_t) 0x33, (uint8_t) write_val);
+}
+uint8_t LIS2_get_WAKE_UP_THS_S_D_TAP(){
+	   /*
+	    * This will return a 0 or 1 from the single and double tap
+	    * value of the WAKE_UP_THS registry
+	    * This value is 0 for single tap enabled
+	    * 			1 for double tap enabled
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_THS(), 7, 7);
+}
+void LIS2_set_WAKE_UP_THS_SLEEP_ON(uint8_t en){
+	   /*
+	    * This command is used to switch sleep enabled
+	    * and disabled in the WAKE_UP_THS registry
+	    *
+	    * 0 is sleep is disabled
+	    * 1 is sleep is enabled
+	    */
+
+	   uint8_t wake_up_ths_state = LIS2_get_WAKE_UP_THS();
+	   uint8_t write_val = bitwise_substr_ed(wake_up_ths_state, en, 6, 6);
+
+	   I2C_WriteReg((uint8_t) 0x33, (uint8_t) write_val);
+}
+uint8_t LIS2_get_WAKE_UP_THS_SLEEP_ON(){
+	   /*
+	    * This command will return the state of the
+	    * sleep enable in the WAKE_UP_THS registry
+	    *
+	    * 0 is sleep is disabled
+	    * 1 is sleep is enabled
+	    */
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_THS(), 6, 6);
+}
+void LIS2_set_WAKE_UP_THS_WU_THS(uint8_t wu_ths){
+	   /*
+	    * This command will set the low level threshold 
+	    * for wake up.
+	    *
+	    * 1 LSB = 1/64 FS
+	    */
+
+	   uint8_t wake_up_ths_state = LIS2_get_WAKE_UP_THS();
+	   uint8_t write_val = bitwise_substr_ed(wake_up_ths_state, wu_ths, 0, 5);
+
+	   I2C_WriteReg((uint8_t) 0x33, (uint8_t) write_val);
+}
+uint8_t LIS2_get_WAKE_UP_THS_WU_THS(){
+	   /*
+	    * This command will read the low level threshold 
+	    * for wake up.
+	    *
+	    * 1 LSB = 1/64 FS
+	    */
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_THS(), 0, 5);
+}
+
+/* Reg 34 */
+uint8_t LIS2_get_WAKE_UP_DUR(){
+	   /*
+	    * This command reads the full byte from the
+	    * WAKE_UP_DUR registry.
+	    *
+	    * Registry 34
+	    */
+
+	   return I2C_ReadReg((uint8_t) 0x34);
+}
+void LIS2_set_WAKE_UP_DUR_WU_DUR(uint8_t dur){
+	   /*
+	    * This command sets the 2 bits for wakeup duration
+	    *
+	    * 1 LSB = 1 TODR
+	    */
+
+	   uint8_t wake_up_dur_state = LIS2_get_WAKE_UP_DUR();
+	   uint8_t write_val = bitwise_substr_ed(wake_up_dur_state, dur, 5, 6);
+
+	   I2C_WriteReg((uint8_t) 0x34, (uint8_t) write_val);
+}
+uint8_t LIS2_get_WAKE_UP_DUR_WU_DUR(){
+	   /*
+	    * This command reads the 2 bit for wakeup duration
+	    *
+	    * 1 LSB = 1 TODR
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_DUR(), 5, 6);
+}
+void LIS2_set_WAKE_UP_DUR_INT1_FSS7(uint8_t en){
+	   /*
+	    * This commands sets the 1 bit to enable or disable the
+	    * FSS7 flag for FIFO on INT1 pad
+	    *
+	    * 0 is disable
+	    * 1 is enable
+	    */
+
+	   uint8_t wake_up_dur_state = LIS2_get_WAKE_UP_DUR();
+	   uint8_t write_val = bitwise_substr_ed(wake_up_dur_state, en, 4, 4);
+
+	   I2C_WriteReg((uint8_t) 0x34, (uint8_t) write_val);
+}
+uint8_t LIS2_get_WAKE_UP_DUR_INT1_FSS7(){
+	   /*
+	    * This commands sets the 1 bit to enable or disable the
+	    * FSS7 flag for FIFO on INT1 pad
+	    *
+	    * 0 is disable
+	    * 1 is enable
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_DUR(), 4, 4);
+}
+void LIS2_set_WAKE_UP_DUR_SLEEP_DUR(uint8_t dur){
+	   /*
+	    * This command sets the 4 bit number to set the duration
+	    * of time to go into sleep mode
+	    *
+	    * 1 LSB = 512 TODR
+	    */
+
+	   uint8_t wake_up_dur_state = LIS2_get_WAKE_UP_DUR();
+	   uint8_t write_val = bitwise_substr_ed(wake_up_dur_state, dur, 0, 3);
+
+	   I2C_WriteReg((uint8_t) 0x34, (uint8_t) write_val);
+}
+uint8_t LIS2_get_WAKE_UP_DUR_SLEEP_DUR(){
+	   /*
+	    * This command sets the 4 bit number to set the duration
+	    * of time to go into sleep mode
+	    *
+	    * 1 LSB = 512 TODR
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_DUR(), 0, 3);
+}
+
+/* Reg 35 */
+uint8_t LIS2_get_FREE_FALL(){
+	   /*
+	    * Reads the byte from the FREE_FALL registry
+	    */
+
+	   return I2C_ReadReg((uint8_t) 0x35);
+}
+void LIS2_set_FREE_FALL_FF_DUR(uint8_t dur){
+	   /*
+	    * This command will set the FF_DUR setting across registry
+	    * 0x34 and 0x35
+	    *
+	    * dur is 5 bits
+	    * 1 LSB = 1 TODR
+	    */
+
+	   uint8_t wake_up_dur_state = LIS2_get_WAKE_UP_DUR();
+	   uint8_t free_fall_state = LIS2_get_FREE_FALL();
+
+	   uint8_t wake_up_dur_write = bitwise_substr_ed(wake_up_dur_state, dur>>4, 7, 7);
+	   uint8_t free_fall_write = bitwise_substr_ed(free_fall_state, dur, 3, 7);
+
+	   I2C_WriteReg((uint8_t) 0x34, (uint8_t) wake_up_dur_write);
+	   I2C_WriteReg((uint8_t) 0x35, (uint8_t) free_fall_write);
+}
+uint8_t LIS2_get_FREE_FALL_FF_DUR(){
+	   /*
+	    * This command will return the FF_DUR setting across registries
+	    * 0x34 and 0x35
+	    *
+	    * will return 5 bits
+	    * 1 LSB = 1 TODR
+	    */
+
+	   uint8_t wake_up_dur_state = LIS2_get_WAKE_UP_DUR();
+	   uint8_t free_fall_state = LIS2_get_FREE_FALL();
+
+	   return (uint8_t) num_cat(bitwise_substr_p(wake_up_dur_state, 7, 7), bitwise_substr_p(free_fall_state, 3, 7));
+}
+void LIS2_set_FREE_FALL_FF_THS(uint8_t thres){
+	   /*
+	    * This command will set the FF_THS in the
+	    * FREE_FALL Registry
+	    *
+	    * Will be 3 bits
+	    * 1 LSB = 31.25 mg
+	    */
+
+	   uint8_t free_fall_state = LIS2_get_FREE_FALL();
+
+	   uint8_t free_fall_write = bitwise_substr_ed(free_fall_state, thres, 0, 2);
+
+	   I2C_WriteReg((uint8_t) 0x35, (uint8_t) free_fall_write);
+}
+uint8_t LIS2_get_FREE_FALL_FF_THS(){
+	   /*
+	    * This command will read the FF_THS in the
+	    * FREE_FALL Registry
+	    *
+	    * will be 3 bits
+	    * 1 LSB = 31.25mg
+	    */
+
+	   return bitwise_substr_p(LIS2_get_FREE_FALL(), 0, 2);
+}
+
+/* Reg 37 */
+uint8_t LIS2_get_WAKE_UP_SRC(){
+	   /*
+	    * Returns the content of the
+	    * WAKE_UP_SRC registry
+	    */
+
+	   return I2C_ReadReg((uint8_t) 0x37);
+}
+uint8_t LIS2_get_WAKE_UP_SRC_FF_IA(){
+	   /*
+	    * Returns the Free fall detection status bit
+	    * in the WAKE_UP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_SRC(), 5, 5);
+}
+uint8_t LIS2_get_WAKE_UP_SRC_SLEEP_STATE_IA(){
+	   /*
+	    * Returns the sleep event status
+	    * in the WAKE_UP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_SRC(), 4, 4);
+}
+uint8_t LIS2_get_WAKE_UP_SRC_WU_IA(){
+	   /*
+	    * Returns the wake up detection status
+	    * in the WAKE_UP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_SRC(), 3, 3);
+}
+uint8_t LIS2_get_WAKE_UP_SRC_X_WU(){
+	   /*
+	    * Returns the wake up detection status on the X axis
+	    * in the WAKE_UP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_SRC(), 2, 2);
+}
+uint8_t LIS2_get_WAKE_UP_SRC_Y_WU(){
+	   /*
+	    * Returns the wake up detection status on the Y axis
+	    * in the WAKE_UP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_SRC(), 1, 1);
+}
+uint8_t LIS2_get_WAKE_UP_SRC_Z_WU(){
+	   /*
+	    * Returns the wake up detection status on the Z axis
+	    * in the WAKE_UP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_WAKE_UP_SRC(), 0, 0);
+}
+
+/* Reg 38 */
+uint8_t LIS2_get_TAP_SRC(){
+	   /*
+	    * Returns the content of the
+	    * TAP_SRC Registry
+	    */
+
+	   return I2C_ReadReg((uint8_t) 0x38);
+}
+uint8_t LIS2_get_TAP_SRC_TAP_IA(){
+	   /*
+	    * Returns the TAP event status
+	    * in TAP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_TAP_SRC(), 6, 6);
+}
+uint8_t LIS2_get_TAP_SRC_S_TAP(){
+	   /*
+	    * Returns the single tap event status
+	    * in TAP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_TAP_SRC(), 5, 5);
+}
+uint8_t LIS2_get_TAP_SRC_D_TAP(){
+	   /*
+	    * Returns the double tap event status
+	    * in TAP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_TAP_SRC(), 4, 4);
+}
+uint8_t LIS2_get_TAP_SRC_TAP_SIGN(){
+	   /*
+	    * Returns the tap sign event status
+	    * in TAP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_TAP_SRC(), 3, 3);
+}
+uint8_t LIS2_get_TAP_SRC_X_TAP(){
+	   /*
+	    * Returns the x tap event status
+	    * in TAP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_TAP_SRC(), 2, 2);
+}
+uint8_t LIS2_get_TAP_SRC_Y_TAP(){
+	   /*
+	    * Returns the y tap event status
+	    * in TAP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_TAP_SRC(), 1, 1);
+}
+uint8_t LIS2_get_TAP_SRC_Z_TAP(){
+	   /*
+	    * Returns the x tap event status
+	    * in TAP_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_TAP_SRC(), 0, 0);
+}
+
+/* Reg 39 */
+uint8_t LIS2_get_6D_SRC(){
+	   /*
+	    * Returns the content of the
+	    * 6D_SRC Registry
+	    */
+
+	   return I2C_ReadReg((uint8_t) 0x39);
+}
+uint8_t LIS2_get_6D_SRC_6D_IA(){
+	   /*
+	    * Returns the change in postition event
+	    * in 6D_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_6d_SRC(), 6, 6);
+}
+uint8_t LIS2_get_6D_SRC_ZH(){
+	   /*
+	    * Returns the overthreshold of ZH
+	    * in 6D_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_6d_SRC(), 5, 5);
+}
+uint8_t LIS2_get_6D_SRC_ZL(){
+	   /*
+	    * Returns the overthreshold of ZL
+	    * in 6D_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_6d_SRC(), 4, 4);
+}
+uint8_t LIS2_get_6D_SRC_YH(){
+	   /*
+	    * Returns the overthreshold of YH
+	    * in 6D_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_6d_SRC(), 3, 3);
+}
+uint8_t LIS2_get_6D_SRC_YL(){
+	   /*
+	    * Returns the overthreshold of YL
+	    * in 6D_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_6d_SRC(), 2, 2);
+}
+uint8_t LIS2_get_6D_SRC_XH(){
+	   /*
+	    * Returns the overthreshold of XH
+	    * in 6D_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_6d_SRC(), 1, 1);
+}
+uint8_t LIS2_get_6D_SRC_XL(){
+	   /*
+	    * Returns the overthreshold of XL
+	    * in 6D_SRC registry
+	    */
+
+	   return bitwise_substr_p(LIS2_get_6d_SRC(), 0, 0);
+}
