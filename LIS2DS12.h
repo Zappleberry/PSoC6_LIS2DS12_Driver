@@ -147,7 +147,7 @@ uint8_t LIS2_get_FIFO_SRC_OVR();
 uint8_t LIS2_get_FIFO_SRC_DIFF();
 
 /* Reg 30 */
-uint8_t LIS2_get_FIFO_SAMPLES();
+uint16_t LIS2_get_FIFO_SAMPLES();
 
 /* Reg 31 */
 uint8_t LIS2_get_TAP_6D_THS();

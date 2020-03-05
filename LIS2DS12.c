@@ -922,7 +922,7 @@ uint8_t LIS2_get_FIFO_THS(){
 	    * Stored in Register 2E
 	    */
 	   
-	   return I2C_WriteReg((uint8_t) 0x2E);
+	   return I2C_ReadReg((uint8_t) 0x2E);
 }
 
 /* Reg 2F */
@@ -1038,7 +1038,7 @@ uint8_t LIS2_get_INT_DUR_LAT(){
 	    * Read the current LAT from INT_DUR registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_INT_DUR, 4, 7);
+	   return bitwise_substr_p(LIS2_get_INT_DUR(), 4, 7);
 }
 
 void LIS2_set_INT_DUR_QUIET(uint8_t quiet){
@@ -1063,7 +1063,7 @@ uint8_t LIS2_get_INT_DUR_QUIET(){
 	    * Read the current QUIET from the INT_DUR registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_INT_DUR, 2, 3);
+	   return bitwise_substr_p(LIS2_get_INT_DUR(), 2, 3);
 }
 
 void LIS2_set_INT_DUR_SHOCK(uint8_t shock){
@@ -1088,7 +1088,7 @@ uint8_t LIS2_get_INT_DUR_SHOCK(){
 	    * Red the current SHOCK from the INT_DUR registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_INT_DUR, 0, 1);
+	   return bitwise_substr_p(LIS2_get_INT_DUR(), 0, 1);
 }
 
 /* Reg 33 */
@@ -1456,7 +1456,7 @@ uint8_t LIS2_get_6D_SRC_6D_IA(){
 	    * in 6D_SRC registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_6d_SRC(), 6, 6);
+	   return bitwise_substr_p(LIS2_get_6D_SRC(), 6, 6);
 }
 uint8_t LIS2_get_6D_SRC_ZH(){
 	   /*
@@ -1464,7 +1464,7 @@ uint8_t LIS2_get_6D_SRC_ZH(){
 	    * in 6D_SRC registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_6d_SRC(), 5, 5);
+	   return bitwise_substr_p(LIS2_get_6D_SRC(), 5, 5);
 }
 uint8_t LIS2_get_6D_SRC_ZL(){
 	   /*
@@ -1472,7 +1472,7 @@ uint8_t LIS2_get_6D_SRC_ZL(){
 	    * in 6D_SRC registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_6d_SRC(), 4, 4);
+	   return bitwise_substr_p(LIS2_get_6D_SRC(), 4, 4);
 }
 uint8_t LIS2_get_6D_SRC_YH(){
 	   /*
@@ -1480,7 +1480,7 @@ uint8_t LIS2_get_6D_SRC_YH(){
 	    * in 6D_SRC registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_6d_SRC(), 3, 3);
+	   return bitwise_substr_p(LIS2_get_6D_SRC(), 3, 3);
 }
 uint8_t LIS2_get_6D_SRC_YL(){
 	   /*
@@ -1488,7 +1488,7 @@ uint8_t LIS2_get_6D_SRC_YL(){
 	    * in 6D_SRC registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_6d_SRC(), 2, 2);
+	   return bitwise_substr_p(LIS2_get_6D_SRC(), 2, 2);
 }
 uint8_t LIS2_get_6D_SRC_XH(){
 	   /*
@@ -1496,7 +1496,7 @@ uint8_t LIS2_get_6D_SRC_XH(){
 	    * in 6D_SRC registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_6d_SRC(), 1, 1);
+	   return bitwise_substr_p(LIS2_get_6D_SRC(), 1, 1);
 }
 uint8_t LIS2_get_6D_SRC_XL(){
 	   /*
@@ -1504,5 +1504,5 @@ uint8_t LIS2_get_6D_SRC_XL(){
 	    * in 6D_SRC registry
 	    */
 
-	   return bitwise_substr_p(LIS2_get_6d_SRC(), 0, 0);
+	   return bitwise_substr_p(LIS2_get_6D_SRC(), 0, 0);
 }

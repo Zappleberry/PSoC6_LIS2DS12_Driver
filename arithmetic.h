@@ -1,6 +1,8 @@
 #ifndef ARITHMETIC_h
 #define ARITHMETIC_h
 
+#include "project.h"
+
 /* ------------------------------- *
  * ------------------------------- *
  * Functions for Arithmetic Needed *
