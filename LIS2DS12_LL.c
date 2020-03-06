@@ -2,6 +2,22 @@
 #include "I2C_RW.h"
 #include "arithmetic.h"
 
+/* -------------------------- *
+ * -------------------------- *
+ * LIS2DS12 WHO_AM_I Function *
+ * -------------------------- *
+ * -------------------------- */
+
+uint8_t LIS2_who_am_i(){
+	   /* 
+	    * WHO_AM_I register is read only in 0x0F register
+	    * Should return 0x43
+	    */
+	   
+	   return I2C_ReadReg((uint8_t) 0x0F);
+
+}
+
 /* ---------------------------------- *
  * ---------------------------------- *
  * LIS2DS12 CTRL1 Low Level Functions *
